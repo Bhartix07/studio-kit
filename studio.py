@@ -1,5 +1,24 @@
 """STUDIO OS visual kit: design tokens, shared CSS, still render and motion render."""
-import os, shutil, subprocess, tempfile
+import os, shutil, subprocess, tempfile, glob
+
+def _find_ffmpeg():
+    """Return ffmpeg binary path: system PATH first, then Playwright's bundled copy."""
+    import shutil as _sh
+    ff = _sh.which("ffmpeg")
+    if ff:
+        return ff
+    # Playwright bundles ffmpeg — find it across common locations
+    patterns = [
+        os.path.expanduser("~/.cache/ms-playwright/ffmpeg-*/ffmpeg"),
+        os.path.expanduser("~/.cache/ms-playwright/ffmpeg-*/ffmpeg-linux"),
+        os.path.expandvars("%LOCALAPPDATA%/ms-playwright/ffmpeg-*/ffmpeg-win64.exe"),
+        os.path.expandvars("%USERPROFILE%/AppData/Local/ms-playwright/ffmpeg-*/ffmpeg-win64.exe"),
+    ]
+    for pat in patterns:
+        found = glob.glob(pat)
+        if found:
+            return found[0]
+    raise FileNotFoundError("ffmpeg not found. Install ffmpeg or run: playwright install chromium")
 ROOT=os.path.dirname(os.path.abspath(__file__))
 FONTS="file://"+os.path.join(ROOT,"fonts")+"/"
 TOK=dict(paper="#F7F5F0",ink="#1C1B19",graphite="#4A4741",mute="#6F6B63",stone="#BDB6A8",hair="#E3DFD6",signal="#B4492D",tide="#3E5C6B")
@@ -55,5 +74,5 @@ def animate(html,name,duration=7.0,fps=30,scale=1):
         for i in range(n):
             pg.evaluate(f"window.frame({i/fps})"); pg.screenshot(path=f"{tmp}/f{i:04d}.png")
         b.close()
-    subprocess.run(["ffmpeg","-y","-loglevel","error","-framerate",str(fps),"-i",f"{tmp}/f%04d.png","-c:v","libx264","-pix_fmt","yuv420p","-crf","16","-movflags","+faststart",out],check=True)
+    subprocess.run([_find_ffmpeg(),"-y","-loglevel","error","-framerate",str(fps),"-i",f"{tmp}/f%04d.png","-c:v","libx264","-pix_fmt","yuv420p","-crf","16","-movflags","+faststart",out],check=True)
     shutil.rmtree(tmp); return out

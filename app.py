@@ -206,8 +206,10 @@ def generate():
 
         return jsonify(result)
 
-    except Exception:
-        return jsonify(error=traceback.format_exc()), 500
+    except Exception as e:
+        err = traceback.format_exc()
+        app.logger.error(err)
+        return jsonify(error=err), 500
 
 
 @app.route("/out/<path:filename>")
