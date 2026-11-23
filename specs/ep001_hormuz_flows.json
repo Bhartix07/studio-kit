@@ -1,0 +1,23 @@
+{"type":"vbar","name":"EP001_04_Hormuz-Flows_regen","motion":true,
+ "kicker":"Global Energy Explained · Episode 001",
+ "title":"Hormuz flows fell by three-quarters, then began to recover",
+ "subtitle":"Oil flowing through the Strait of Hormuz, million barrels per day, quarterly average",
+ "y":{"max":25,"ticks":[0,5,10,15,20,25]},
+ "baseline":{"value":21.6,"label":"Pre-war level, Q4 2025: 21.6"},
+ "slots":[
+  {"label":"Q4 2025","sub":"Pre-war level","start":"2025-10-01","end":"2025-12-31","value":21.6,"style":"base"},
+  {"label":"Q1 2026","start":"2026-01-01","end":"2026-03-31","value":15.0,"opacity":0.62},
+  {"label":"Q2 2026","start":"2026-04-01","end":"2026-06-30","value":5.1},
+  {"label":"Q3 2026","start":"2026-07-01","end":"2026-09-30","value":9.1,"opacity":0.62},
+  {"label":"Q4 2026","start":"2026-10-01","end":"2026-12-31","pending":"Not yet published"}],
+ "events":[
+  {"date":"2026-02-28","row":0,"label_date":"28 Feb","label":"War begins"},
+  {"date":"2026-04-13","row":1,"label_date":"13 Apr","label":"US blockade begins"},
+  {"date":"2026-06-17","row":0,"label_date":"17 Jun","label":"Deal; blockade lifted"},
+  {"date":"2026-07-14","row":1,"label_date":"14 Jul","label":"Blockade reinstated"}],
+ "side":{"chip":"EIA estimate","chip_status":"estimate","stats":[
+  {"n":"5.1","t":"The low point, Q2 2026: 76% below the pre-war level."},
+  {"n":"+4.0","t":"Recovery in Q3 2026, to 9.1."},
+  {"n":"12.5","t":"Still missing each day against the pre-war level."}]},
+ "source":"Source: U.S. Energy Information Administration, Global Energy Security Data, 16 Nov 2026 release (Q2 2026 revised from 4.9 to 5.1). Events: Reuters, RFE/RL. EIA notes Hormuz tracking data have been unreliable since late February 2026 and 2026 volumes are revised frequently. Dashed outlines show the shortfall against Q4 2025, in million barrels per day.",
+ "page":"04 / 05"}

@@ -1,0 +1,16 @@
+{"type":"hbar","name":"EP001_06_Bypass-Capacity","motion":true,
+ "kicker":"Global Energy Explained · Episode 001",
+ "title":"Pipelines could bypass only a fraction of Hormuz",
+ "subtitle":"Estimated bypass pipeline capacity against Hormuz oil flows, million barrels per day",
+ "x":{"max":25,"ticks":[0,5,10,15,20,25]},
+ "groups":[
+  {"label":"Oil flowing through the strait","rows":[
+   {"label":"Q4 2025, before the war","note":"Quarterly average","value":21.6,"style":"base","chip":"EIA estimate","chip_status":"estimate"},
+   {"label":"Q3 2026","note":"Quarterly average; still 58% below pre-war","value":9.1,"style":"crisis","opacity":0.62,"chip":"EIA estimate","chip_status":"estimate"}]},
+  {"label":"Pipeline capacity that could bypass it","rows":[
+   {"label":"IEA estimate","note":"A range, not a single figure","range":[3.5,5.5],"style":"tide","chip":"IEA estimate","chip_status":"estimate"},
+   {"label":"EIA estimate","note":"Unused pipeline capacity, EIA analysis from 2025","value":2.6,"style":"tide","chip":"EIA estimate","chip_status":"estimate"},
+   {"label":"4.7, attributed to EIA","note":"Cited by OilPrice.com; not found in EIA’s own text","value":4.7,"style":"unverified","chip":"Unverified","chip_status":"unverified"}]}],
+ "callout":{"big":"≈ ¼","text":"Even the highest estimate, 5.5 million barrels a day, covers about a quarter of the pre-war flow. The lowest, 2.6, covers about an eighth."},
+ "source":"Sources: EIA, Global Energy Security Data (16 Nov 2026) and Today in Energy (2025); IEA, Strait of Hormuz; OilPrice.com. IEA and EIA figures use different definitions and are not directly comparable. Capacity is not the same as what can safely be exported.",
+ "page":"06"}
